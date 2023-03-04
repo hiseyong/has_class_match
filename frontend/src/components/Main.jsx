@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
 import '../css/table.css'
 export function Main() {
-    let localStorage = window.localStorage;
     return(
         <div>
-            <Link to='/timetableallset'>
-                <button>시간표 전체설정</button>
-            </Link>
-            <Link to='/timetableselectset'>
-                <button>시간표 선택설정</button>
-            </Link>
-            <hr/>
+            <h2>각 칸을 선택하여 시간표 설정</h2>
             <center>
                 <span className="table">교시\요일</span>
                 <span className="table">월</span>

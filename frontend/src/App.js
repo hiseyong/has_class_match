@@ -9,7 +9,8 @@ import { useState } from "react";
 import { TimeTableAllSet } from "./components/TimeTableAllSet";
 import { TimeTableSelectSet } from "./components/TimeTableSelectSet";
 import { TableFill } from "./components/TableFill";
-
+import { Nav } from "./components/Nav";
+import { Search } from "./components/Search";
 function App() {
   const [logedInUsername, setLogedInUsername] = useState('');
   const logging = (val) => {
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="Wrapper">
       <BrowserRouter>
+        <Nav/>
         <Routes>
           <Route path="/tablefill/:id" element={<TableFill/>}/>
           <Route path="/timetableallset" element={<TimeTableAllSet/>}/>
@@ -26,6 +28,7 @@ function App() {
           <Route path="/timetable" element={<Main/>}/>
           <Route path="/introduction" element={<Introduction/>}/>
           <Route path="/resister" element={<Resister/>}/>
+          <Route path="/search" element={<Search/>}/>
           <Route path="/" exact={true} element={<Greeting/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
