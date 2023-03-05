@@ -34,12 +34,7 @@ app.post('/api/login',(req, res)=>{
       res.send('0');
     } else {
       if (ls[0].password === recUserinfo.password) {
-<<<<<<< HEAD
-        res.send(1);
-        console.log('complete')
-=======
         res.send('1');
->>>>>>> fc01982eeb9e7591ff72a3b9a2f650f7eb477af6
       } else {
         res.send('2')
       }
