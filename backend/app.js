@@ -26,7 +26,8 @@ app.use(function (error, req, res, next) {
 });
 
 app.post('/api/login',(req, res)=>{
-  let recUserinfo = req.body.name
+  console.log(req)
+  let recUserinfo = req.body.account
   connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) => {
     if (error) throw error;
     ls = rows;
@@ -35,6 +36,7 @@ app.post('/api/login',(req, res)=>{
     } else {
       if (ls[0].password === recUserinfo.password) {
         res.send(1);
+        console.log('complete')
       } else {
         res.send(2)
       }
