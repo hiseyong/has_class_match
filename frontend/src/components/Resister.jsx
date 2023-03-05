@@ -5,7 +5,17 @@ export function Resister() {
     const navigate = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [account, setAccount] = useState({
+        'username': '',
+        'password': ''
+    })
 
+    useEffect(()=>{
+        setAccount({
+            'username': username,
+            'password': password
+        })
+    },[username, password])
     const usernameOnChange = (e) => {
         setUsername(e.target.value)
     }
