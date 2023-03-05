@@ -31,12 +31,12 @@ app.post('/api/login',(req, res)=>{
     if (error) throw error;
     ls = rows;
     if (ls.length === 0) {
-      res.send(0);
+      res.send('0');
     } else {
       if (ls[0].password === recUserinfo.password) {
-        res.send(1);
+        res.send('1');
       } else {
-        res.send(2)
+        res.send('2')
       }
     }
   });
