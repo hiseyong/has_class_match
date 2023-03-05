@@ -1,13 +1,25 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 export function Login(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [account, setAccount] = useState({
+        'username': '',
+        'password': ''
+    })
+
+    useEffect(()=>{
+        setAccount({
+            'username': username,
+            'password': password
+        })
+    },[username, password])
+
     const navigate = useNavigate()
     const send =()=>{
         const client = axios.create();   // axios 기능생성
-        client.post('/api/login' , {username} )   //axios 기능을 통한 post 사용및 name 값 전달.
+        client.post('/api/login' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
           if (res.data === 0) {
             alert("wrong username")
@@ -26,10 +38,11 @@ export function Login(props) {
 
     const passwordOnChange = (e) => {
         setPassword(e.target.value)
+        console.log(account)
     }
 
     const onClick = () => {
-        console.log(username, ',', password)
+        console.log(account)
         send()
     }
     return(
