@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router';
 export function Login(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    Navigate = useNavigate('/timetable')
+    const navigate = useNavigate()
     const send =()=>{
         const client = axios.create();   // axios 기능생성
-        const name = value;   
-        client.post('/api/login' , {name} )   //axios 기능을 통한 post 사용및 name 값 전달.
+        client.post('/api/login' , {username} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
           if (res.data === 0) {
             alert("wrong username")
@@ -16,7 +15,7 @@ export function Login(props) {
             alert("wrong password")
           } else if(res.data === 1) {
             props.logging(username)
-            nav
+            navigate('/timetable')
           }
         })
         .catch();
@@ -31,12 +30,13 @@ export function Login(props) {
 
     const onClick = () => {
         console.log(username, ',', password)
+        send()
     }
     return(
         <div>
-            <input placeholder="username"/>
-            <input placeholder="password"/>
-            <button>login</button>
+            <input placeholder="username" onChange={usernameOnChange}/>
+            <input placeholder="password" onChange={passwordOnChange}/>
+            <button onClick={onClick}>login</button>
         </div>
     )
 }
