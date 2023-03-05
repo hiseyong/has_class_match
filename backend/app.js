@@ -59,7 +59,7 @@ app.post('/api/resister',(req, res) => {
       "class" : "user"
     });
     res.send(true)
-    connection.query(`INSERT INTO user VALUES ('${recUserinfo.username}','${recUserinfo.password}', 'user')`, (error) => {
+    connection.query(`INSERT INTO user VALUES ('${recUserinfo.username}','${recUserinfo.password}')`, (error) => {
       if (error) throw error;
     });
   } else {
