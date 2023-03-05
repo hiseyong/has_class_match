@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
 
 
 let ls = [];
-
+app.use(express.json())
 app.use(function (error, req, res, next) {
   if (error.status === 400) {
     log.info(error.body);
@@ -26,7 +26,10 @@ app.use(function (error, req, res, next) {
 });
 
 app.post('/api/login',(req, res)=>{
+<<<<<<< HEAD
   console.log(req)
+=======
+>>>>>>> 6bb19ba4b33cf24c60c656b2904cdc73ca5b1690
   let recUserinfo = req.body.account
   connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) => {
     if (error) throw error;
