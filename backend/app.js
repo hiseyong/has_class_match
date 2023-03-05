@@ -27,6 +27,7 @@ app.use(function (error, req, res, next) {
 
 app.post('/api/login',(req, res)=>{
   let recUserinfo = req.body.account
+  console.log('login')
   connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) => {
     if (error) throw error;
     ls = rows;
@@ -37,6 +38,7 @@ app.post('/api/login',(req, res)=>{
         res.send('1');
       } else {
         res.send('2')
+        console.log('com')
       }
     }
   });
