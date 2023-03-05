@@ -48,6 +48,7 @@ app.post('/api/login',(req, res)=>{
 
 app.post('/api/resister',(req, res) => {
   let recUserinfo = req.body.account
+  console.log(recUserinfo)
   connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) =>{
     if (error) throw error;
     upls = rows;
