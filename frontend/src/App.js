@@ -6,8 +6,6 @@ import { Resister } from "./components/Resister";
 import { Main } from "./components/Main";
 import { Introduction } from "./components/Introduction";
 import { useState } from "react";
-import { TimeTableAllSet } from "./components/TimeTableAllSet";
-import { TimeTableSelectSet } from "./components/TimeTableSelectSet";
 import { TableFill } from "./components/TableFill";
 import { Nav } from "./components/Nav";
 import { Search } from "./components/Search";
@@ -22,9 +20,7 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/tablefill/:id" element={<TableFill/>}/>
-          <Route path="/timetableallset" element={<TimeTableAllSet/>}/>
-          <Route path="/timetableselectset" element={<TimeTableSelectSet/>}/>
-          <Route path="/login" element={<Login logging={logging}/>}/>
+          <Route path="/login" element={<Login logging={logging} username={logedInUsername}/>}/>
           <Route path="/timetable" element={<Main username={logedInUsername}/>}/>
           <Route path="/introduction" element={<Introduction/>}/>
           <Route path="/resister" element={<Resister/>}/>

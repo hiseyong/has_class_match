@@ -43,15 +43,26 @@ export function Login(props) {
         console.log(account)
     }
 
-    const onClick = () => {
-        console.log(account)
-        send()
+
+    const logoutOnClick = () => {
+      props.logging('')
     }
-    return(
+    if(props === '') {
+      return(
         <div>
-            <input placeholder="username" onChange={usernameOnChange}/>
-            <input placeholder="password" onChange={passwordOnChange}/>
-            <button onClick={onClick}>login</button>
+          <h2>현재 로그인</h2>
+          <input placeholder="username" onChange={usernameOnChange}/>
+          <input placeholder="password" onChange={passwordOnChange}/>
+          <button onClick={onClick}>login</button>
         </div>
-    )
+      )
+    } else {
+      return(
+        <div>
+          <h3>현재 {props.username}으로 로그인되어 있습니다. 로그아웃하시겠습니까?</h3>
+          <button>Logout</button>
+        </div>
+      )
+    }
+    
 }
