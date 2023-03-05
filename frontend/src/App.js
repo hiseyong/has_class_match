@@ -25,7 +25,7 @@ function App() {
           <Route path="/timetableallset" element={<TimeTableAllSet/>}/>
           <Route path="/timetableselectset" element={<TimeTableSelectSet/>}/>
           <Route path="/login" element={<Login logging={logging}/>}/>
-          <Route path="/timetable" element={<Main/>}/>
+          <Route path="/timetable" element={<Main username={logedInUsername}/>}/>
           <Route path="/introduction" element={<Introduction/>}/>
           <Route path="/resister" element={<Resister/>}/>
           <Route path="/search" element={<Search/>}/>
