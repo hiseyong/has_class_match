@@ -47,7 +47,7 @@ export function Login(props) {
     const logoutOnClick = () => {
       props.logging('')
     }
-    if(props === '') {
+    if(props.username === '') {
       return(
         <div>
           <h2>현재 로그인</h2>
@@ -60,7 +60,7 @@ export function Login(props) {
       return(
         <div>
           <h3>현재 {props.username}으로 로그인되어 있습니다. 로그아웃하시겠습니까?</h3>
-          <button>Logout</button>
+          <button onClick={logoutOnClick}>Logout</button>
         </div>
       )
     }
