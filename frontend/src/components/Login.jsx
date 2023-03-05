@@ -21,11 +21,11 @@ export function Login(props) {
         const client = axios.create();   // axios 기능생성
         client.post('/api/login' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
-          if (res.data === 0) {
+          if (res.data === '0') {
             alert("wrong username")
-          } else if (res.data === 2) {
+          } else if (res.data === '2') {
             alert("wrong password")
-          } else if(res.data === 1) {
+          } else if(res.data === '1') {
             props.logging(username)
             navigate('/timetable')
           }
