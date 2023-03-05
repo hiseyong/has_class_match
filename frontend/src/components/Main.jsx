@@ -5,6 +5,7 @@ export function Main(props) {
     const navigate = useNavigate() 
     const [owner, setOwner] = useState('')
     const onClick = (e) => {
+        console.log(e.target)
         navigate(`/tablefill/${e.target.name}`)
     }
     if(props.username === '') {
