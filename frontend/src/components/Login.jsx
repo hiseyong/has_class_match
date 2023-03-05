@@ -22,11 +22,11 @@ export function Login(props) {
         client.post('/api/login' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
             console.log(res.data)
-          if (res.data === '0') {
+          if (res.data === 0) {
             alert("wrong username")
-          } else if (res.data === '2') {
+          } else if (res.data === 2) {
             alert("wrong password")
-          } else if(res.data === '1') {
+          } else if(res.data === 1) {
             console.log('com')
             props.logging(username)
             navigate('/timetable')
