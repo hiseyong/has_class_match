@@ -26,6 +26,7 @@ export function Login(props) {
           } else if (res.data === '2') {
             alert("wrong password")
           } else if(res.data === '1') {
+            console.log('com')
             props.logging(username)
             navigate('/timetable')
           }
