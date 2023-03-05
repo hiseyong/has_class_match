@@ -27,7 +27,7 @@ export function Resister() {
     const onClick = () => {
         console.log(username, ',', password)
         const client = axios.create();   // axios 기능생성
-        client.post('/api/resister' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
+        client.post('http://localhost:3000/api/resister' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
             console.log(res.data)
           if (res.data === true) {
