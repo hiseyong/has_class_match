@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Nav/>
         <Routes>
-          <Route path="/tablefill/:id" element={<TableFill/>}/>
+          <Route path="/tablefill/:id" element={<TableFill username={logedInUsername}/>}/>
           <Route path="/login" element={<Login logging={logging} username={logedInUsername}/>}/>
           <Route path="/timetable" element={<Main username={logedInUsername}/>}/>
           <Route path="/introduction" element={<Introduction/>}/>
