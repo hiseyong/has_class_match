@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '1029',
-  database : 'blogorwiki'
+  database : 'classmatch'
 });
 
 
@@ -25,6 +25,44 @@ app.use(function (error, req, res, next) {
 
 });
 
+app.post('/api/login',(req, res)=>{
+  let recUserinfo = req.body.name
+  connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) => {
+    if (error) throw error;
+    ls = rows;
+    if (ls.length === 0) {
+      res.send(0);
+    } else {
+      if (ls[0].password === recUserinfo.password) {
+        res.send(1);
+      } else {
+        res.send(2)
+      }
+    }
+  });
+});
+
+app.post('/api/resister',(req, res) => {
+  let recUserinfo = req.body.name
+  connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) =>{
+    if (error) throw error;
+    upls = rows;
+  if (upls.length === 0) {
+    let userinfo = ({
+      "username" : recUserinfo.username,
+      "password" : recUserinfo.password,
+      "class" : "user"
+    });
+    res.send(true)
+    connection.query(`INSERT INTO user VALUES ('${recUserinfo.username}','${recUserinfo.password}', 'user')`, (error) => {
+      if (error) throw error;
+    });
+  } else {
+    res.send(false)
+  }
+  });
+  
+});
 
 app.use(express.json());
 var cors = require('cors');

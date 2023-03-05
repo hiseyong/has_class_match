@@ -13,22 +13,32 @@ export function Nav() {
             <ul>
                 <li>
                     <Link to="/">
-                        <h1 className={`btn ${active === '' ? 'active' : ''}`} onClick={() => setActive('timetable')}>Main</h1>
+                        <h1 className={`btn ${active === '' ? 'active' : ''}`} onClick={() => setActive('')}>Main</h1>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="timetable">
+                        <h1 className={`btn ${active === 'timetable' ? 'active' : ''}`} onClick={() => setActive('timetable')}>Mypage</h1>
                     </Link>
                 </li>
                 <li>
                     <Link to="search">
-                        <h1 className={`btn ${active === 'signin' ? 'active' : ''}`} onClick={() => setActive('search')}>Search</h1>
+                        <h1 className={`btn ${active === 'search' ? 'active' : ''}`} onClick={() => setActive('search')}>Search</h1>
                     </Link>
                 </li>
                 <li>
                     <Link to="resister">
-                        <h1 className={`btn ${active === 'signup' ? 'active' : ''}`} onClick={() => setActive('resister')}>Resister</h1>
+                        <h1 className={`btn ${active === 'resister' ? 'active' : ''}`} onClick={() => setActive('resister')}>Resister</h1>
                     </Link>
                 </li>
                 <li>
                     <Link to="login">
-                        <h1 className={`btn ${active === 'document' ? 'active' : ''}`} onClick={() => setActive('login')}>Login</h1>
+                        <h1 className={`btn ${active === 'login' ? 'active' : ''}`} onClick={() => setActive('login')}>Login</h1>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="introduction">
+                        <h1 className={`btn ${active === 'introduction' ? 'active' : ''}`} onClick={() => setActive('introduction')}>Introduction</h1>
                     </Link>
                 </li>
             </ul>
