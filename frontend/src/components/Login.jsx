@@ -53,7 +53,7 @@ export function Login(props) {
           <h2>현재 로그인</h2>
           <input placeholder="username" onChange={usernameOnChange}/>
           <input placeholder="password" onChange={passwordOnChange}/>
-          <button onClick={onClick}>login</button>
+          <button onClick={send}>login</button>
         </div>
       )
     } else {
