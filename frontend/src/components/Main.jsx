@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../css/table.css'
 export function Main(props) {
-    const client = axios.client();
+    const client = axios.create();
     const [account, setAccount] = useState({
         'username': props.username
     })
