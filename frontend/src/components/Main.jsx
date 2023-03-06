@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import '../css/table.css'
 export function Main(props) {
+    const client = axios.client();
+    const [account, setAccount] = useState({
+        'username': props.username
+    })
+
+    useEffect(()=>{
+        setAccount({
+            'username': props.username
+        })
+    },[props.username])
+
+    useEffect(()=> {
+        client.post('/api/getlist' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
+        .then(res => {
+            console.log(res.tata)
+        })
+        .catch();
+    })
     if(props.username === '') {
         return(
             <h1>로그인되지 않았습니다.</h1>

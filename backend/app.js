@@ -75,6 +75,7 @@ app.post('/api/getlist',(req, res) => {
   connection.query(`SELECT * FROM timetable WHERE username='${recUserinfo.username}'`, (error, rows) => {
     if(error) throw error;
     console.log(rows)
+    res.send(rows)
   })
 });
 
