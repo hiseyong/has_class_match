@@ -15,13 +15,16 @@ export function Main(props) {
     },[props.username])
 
     useEffect(()=> {
-        client.post('/api/getlist' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
+        if(account.username != '') {
+            client.post('/api/getlist' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
             setTable(res.data[0].timetable.split(','))
             console.log(res.data[0].timetable.split(','))
         })
         .catch();
-    },[])
+        }
+        
+    },[account.username])
     if(props.username === '') {
         return(
             <h1>로그인되지 않았습니다.</h1>
