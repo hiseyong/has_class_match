@@ -47,7 +47,7 @@ export function Main(props) {
                         <span className="table">{table[0]}</span>
                     </Link>
                     <Link to='/tablefill/2'>
-                        <span className="table">{table[1]}</span>
+                        <span className="table">{table[1]}gkrl</span>
                     </Link>
                     <Link to='/tablefill/3'>
                         <span className="table">{table[2]}</span>
