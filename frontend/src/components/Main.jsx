@@ -7,7 +7,7 @@ export function Main(props) {
     const [account, setAccount] = useState({
         'username': props.username
     })
-
+    const [table, setTable] = useState([])
     useEffect(()=>{
         setAccount({
             'username': props.username
@@ -17,7 +17,8 @@ export function Main(props) {
     useEffect(()=> {
         client.post('/api/getlist' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
-            console.log(res.data)
+            setTable(res.data[0].timetable.split(','))
+            console.log(table)
         })
         .catch();
     },[])
