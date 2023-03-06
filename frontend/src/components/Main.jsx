@@ -17,7 +17,7 @@ export function Main(props) {
     useEffect(()=> {
         client.post('/api/getlist' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
-            console.log(res.tata)
+            console.log(res.data)
         })
         .catch();
     },[])
