@@ -20,7 +20,7 @@ export function Main(props) {
             console.log(res.tata)
         })
         .catch();
-    })
+    },[])
     if(props.username === '') {
         return(
             <h1>로그인되지 않았습니다.</h1>
