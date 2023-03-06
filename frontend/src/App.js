@@ -10,7 +10,7 @@ import { TableFill } from "./components/TableFill";
 import { Nav } from "./components/Nav";
 import { Search } from "./components/Search";
 function App() {
-  const [logedInUsername, setLogedInUsername] = useState('');
+  const [logedInUsername, setLogedInUsername] = useState('hiseyong');
   const logging = (val) => {
     setLogedInUsername(val);
   }

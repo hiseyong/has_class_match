@@ -62,11 +62,20 @@ app.post('/api/resister',(req, res) => {
     connection.query(`INSERT INTO user VALUES ('${recUserinfo.username}','${recUserinfo.password}')`, (error) => {
       if (error) throw error;
     });
+    connection.query(`INSERT INTO timetable VALUES ('${recUserinfo.username}',"-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-")`)
   } else {
     res.send(false)
   }
   });
+});
+
+app.post('/api/getlist',(req, res) => {
+  let recUserinfo = req.body.account
   
+  connection.query(`SELECT * FROM timetable WHERE username='${recUserinfo.username}'`, (error, rows) => {
+    if(error) throw error;
+    console.log(rows)
+  })
 });
 
 app.use(express.json());
