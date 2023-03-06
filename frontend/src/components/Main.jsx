@@ -41,121 +41,121 @@ export function Main(props) {
                     <br/>
                     <span className="table">1교시</span>
                     <Link to='/tablefill/1'>
-                        <span className="table">-</span>
+                        <span className="table">{table[0]}</span>
                     </Link>
                     <Link to='/tablefill/2'>
-                        <span className="table">-</span>
+                        <span className="table">{table[1]}</span>
                     </Link>
                     <Link to='/tablefill/3'>
-                        <span className="table">-</span>
+                        <span className="table">{table[2]}</span>
                     </Link>
                     <Link to='/tablefill/4'>
-                        <span className="table">-</span>
+                        <span className="table">{table[3]}</span>
                     </Link>
                     <Link to='/tablefill/5'>
-                        <span className="table">-</span>
+                        <span className="table">{table[4]}</span>
                     </Link>
                     <br/>
                     <span className="table">2교시</span>
                     <Link to='/tablefill/6'>
-                        <span className="table">-</span>
+                        <span className="table">{table[5]}</span>
                     </Link>
                     <Link to='/tablefill/7'>
-                        <span className="table">-</span>
+                        <span className="table">{table[6]}</span>
                     </Link>
                     <Link to='/tablefill/8'>
-                        <span className="table">-</span>
+                        <span className="table">{table[7]}</span>
                     </Link>
                     <Link to='/tablefill/9'>
-                        <span className="table">-</span>
+                        <span className="table">{table[8]}</span>
                     </Link>
                     <Link to='/tablefill/10'>
-                        <span className="table">-</span>
+                        <span className="table">{table[9]}</span>
                     </Link>
                     <br/>
                     <span className="table">3교시</span>
                     <Link to='/tablefill/11'>
-                        <span className="table">-</span>
+                        <span className="table">{table[10]}</span>
                     </Link>
                     <Link to='/tablefill/12'>
-                        <span className="table">-</span>
+                        <span className="table">{table[11]}</span>
                     </Link>
                     <Link to='/tablefill/13'>
-                        <span className="table">-</span>
+                        <span className="table">{table[12]}</span>
                     </Link>
                     <Link to='/tablefill/14'>
-                        <span className="table">-</span>
+                        <span className="table">{table[13]}</span>
                     </Link>
                     <Link to='/tablefill/15'>
-                        <span className="table">-</span>
+                        <span className="table">{table[14]}</span>
                     </Link>
                     <br/>
                     <span className="table">4교시</span>
                     <Link to='/tablefill/16'>
-                        <span className="table">-</span>
+                        <span className="table">{table[15]}</span>
                     </Link>
                     <Link to='/tablefill/17'>
-                        <span className="table">-</span>
+                        <span className="table">{table[16]}</span>
                     </Link>
                     <Link to='/tablefill/18'>
-                        <span className="table">-</span>
+                        <span className="table">{table[17]}</span>
                     </Link>
                     <Link to='/tablefill/19'>
-                        <span className="table">-</span>
+                        <span className="table">{table[18]}</span>
                     </Link>
                     <Link to='/tablefill/20'>
-                        <span className="table">-</span>
+                        <span className="table">{table[19]}</span>
                     </Link>
                     <br/>
                     <span className="table">5교시</span>
                     <Link to='/tablefill/21'>
-                        <span className="table">-</span>
+                        <span className="table">{table[20]}</span>
                     </Link>
                     <Link to='/tablefill/22'>
-                        <span className="table">-</span>
+                        <span className="table">{table[21]}</span>
                     </Link>
                     <Link to='/tablefill/23'>
-                        <span className="table">-</span>
+                        <span className="table">{table[22]}</span>
                     </Link>
                     <Link to='/tablefill/24'>
-                        <span className="table">-</span>
+                        <span className="table">{table[23]}</span>
                     </Link>
                     <Link to='/tablefill/25'>
-                        <span className="table">-</span>
+                        <span className="table">{table[24]}</span>
                     </Link>
                     <br/>
                     <span className="table">6교시</span>
                     <Link to='/tablefill/26'>
-                        <span className="table">-</span>
+                        <span className="table">{table[25]}</span>
                     </Link>
                     <Link to='/tablefill/27'>
-                        <span className="table">-</span>
+                        <span className="table">{table[26]}</span>
                     </Link>
                     <Link to='/tablefill/28'>
-                        <span className="table">-</span>
+                        <span className="table">{table[27]}</span>
                     </Link>
                     <Link to='/tablefill/29'>
-                        <span className="table">-</span>
+                        <span className="table">{table[28]}</span>
                     </Link>
                     <Link to='/tablefill/30'>
-                        <span className="table">-</span>
+                        <span className="table">{table[29]}</span>
                     </Link>
                     <br/>
                     <span className="table">7교시</span>
                     <Link to='/tablefill/31'>
-                        <span className="table">-</span>
+                        <span className="table">{table[30]}</span>
                     </Link>
                     <Link to='/tablefill/32'>
-                        <span className="table">-</span>
+                        <span className="table">{table[31]}</span>
                     </Link>
                     <Link to='/tablefill/33'>
-                        <span className="table">-</span>
+                        <span className="table">{table[32]}</span>
                     </Link>
                     <Link to='/tablefill/34'>
-                        <span className="table">-</span>
+                        <span className="table">{table[33]}</span>
                     </Link>
                     <Link to='/tablefill/35'>
-                        <span className="table">-</span>
+                        <span className="table">{table[34]}</span>
                     </Link>
                 </center>
                 
