@@ -30,6 +30,16 @@ export function Main(props) {
             <h1>로그인되지 않았습니다.</h1>
         )
     } else {
+        if(table.length === 0) {
+            return(
+                <div>
+                    <h1>
+                        Data Loading...(지속되면 백엔드 문제)
+                    </h1>
+                </div>
+            )
+        }
+        else{
         return(
             <div>
                 <h1></h1>
@@ -163,7 +173,7 @@ export function Main(props) {
                 </center>
                 
             </div>
-        )
+        )}
     }
     
 }
