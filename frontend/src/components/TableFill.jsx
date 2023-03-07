@@ -6,10 +6,16 @@ export function TableFill(props) {
     const client = axios.create()
     
     const [location, setLocation] = useState(loc.pathname.split('/')[1]);
+    const [subject, setSubject] = useState('select')
 
     useEffect(()=>{
         setLocation(loc.pathname.split('/')[2]);
     },[loc.pathname]);
+
+    const onChange = (e) => {
+        setSubject(e.target.value)
+        console.log(e.target.value)
+    }
 
     const navigate = useNavigate()
 
@@ -19,21 +25,22 @@ export function TableFill(props) {
         return(
             <span>
                 <select name="job">
-                    <option value="select">과목선택</option>
-                    <option value="korean">국어</option>
-                    <option value="english">영어</option>
-                    <option value="math">수학</option>
-                    <option value="social">통합사회</option>
-                    <option value="science">통합과학</option>
-                    <option value="pe">체육</option>
-                    <option value="music">음악</option>
-                    <option value="art">미술</option>
-                    <option value="chinese">중국어</option>
-                    <option value="japanese">일본어</option>
-                    <option value="korhistory">한국사</option>
-                    <option value="programming">프로그래밍</option>
-                    <option value="philosophy">철학</option>
+                    <option value="select" onChange={onChange}>과목선택</option>
+                    <option value="korean" onChange={onChange}>국어</option>
+                    <option value="english" onChange={onChange}>영어</option>
+                    <option value="math" onChange={onChange}>수학</option>
+                    <option value="social" onChange={onChange}>통합사회</option>
+                    <option value="science" onChange={onChange}>통합과학</option>
+                    <option value="pe" onChange={onChange}>체육</option>
+                    <option value="music" onChange={onChange}>음악</option>
+                    <option value="art" onChange={onChange}>미술</option>
+                    <option value="chinese" onChange={onChange}>중국어</option>
+                    <option value="japanese" onChange={onChange}>일본어</option>
+                    <option value="korhistory" onChange={onChange}>한국사</option>
+                    <option value="programming" onChange={onChange}>프로그래밍</option>
+                    <option value="philosophy" onChange={onChange}>철학</option>
                 </select>
+                <button id="tablefilling">반영</button>
             </span>
         )
     }
