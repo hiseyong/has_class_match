@@ -12,8 +12,6 @@ const connection = mysql.createConnection({
   database : 'classmatch'
 });
 
-
-let ls = [];
 app.use(express.json())
 app.use(function (error, req, res, next) {
   if (error.status === 400) {
@@ -30,12 +28,11 @@ app.post('/api/login',(req, res)=>{
   console.log('login')
   connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) => {
     if (error) throw error;
-    ls = rows;
-    if (ls.length === 0) {
+    if (rows.length === 0) {
       console.log('no account')
       res.send('0');
     } else {
-      if (ls[0].password === recUserinfo.password) {
+      if (rows[0].password === recUserinfo.password) {
         console.log('com')
         res.send('1');
       } else {
@@ -51,8 +48,7 @@ app.post('/api/resister',(req, res) => {
   console.log(recUserinfo)
   connection.query(`SELECT * FROM user WHERE username='${recUserinfo.username}'`, (error, rows) =>{
     if (error) throw error;
-    upls = rows;
-  if (upls.length === 0) {
+  if (rows.length === 0) {
     let userinfo = ({
       "username" : recUserinfo.username,
       "password" : recUserinfo.password,
@@ -73,6 +69,28 @@ app.post('/api/getlist',(req, res) => {
   let recUserinfo = req.body.account
   
   connection.query(`SELECT * FROM timetable WHERE username='${recUserinfo.username}'`, (error, rows) => {
+    if(error) throw error;
+    console.log(rows)
+    res.send(rows)
+  })
+});
+
+app.post('/api/tablefill',(req, res) => {
+  let recTableLocation = req.body.location
+  let recTableValue = req.body.subject
+  let recUserinfo = req.body.account
+  let ls = []
+  connection.query(`SELECT * FROM timetable WHERE username='${recUserinfo}'`, (error, rows) => {
+    if(error) throw error;
+    ls = rows
+  })
+  const tt = ls.timetable.split(',')
+  tt[recTableLocation] = recTableValue
+  let tableString = ''
+  for(let i=0; i < tt.length; i++) {
+    tableString = tableString + tt[i]
+  }
+  connection.query(`UPDATE timetable SET timetable='${tableString} WHERE username='${recUserinfo}'`, (error, rows) => {
     if(error) throw error;
     console.log(rows)
     res.send(rows)

@@ -5,13 +5,17 @@ import axios from 'axios';
 export function TableFill(props) {
     const loc = useLocation();
     const client = axios.create()
-    
+    const [account, setAccount] = useState(props.username)
     const [location, setLocation] = useState(loc.pathname.split('/')[1]);
     const [subject, setSubject] = useState('select')
 
     useEffect(()=>{
         setLocation(loc.pathname.split('/')[2]);
     },[loc.pathname]);
+
+    useEffect(() => {
+        setAccount(props.username)
+    }, [props.username])
 
     const onChange = (e) => {
         setSubject(e.target.value)
@@ -21,7 +25,7 @@ export function TableFill(props) {
         if(subject === 'select') {
             alert('과목을 선택하세요')
         } else {
-            
+            client.post('/api/tablefill', {subject, location, account})
         }
     }
 
@@ -48,7 +52,7 @@ export function TableFill(props) {
                     <option value="programming">프로그래밍</option>
                     <option value="philosophy">철학</option>
                 </select>
-                <button id="tablefilling">반영</button>
+                <button id="tablefilling" onClick={onClick}>반영</button>
             </span>
         )
     }
