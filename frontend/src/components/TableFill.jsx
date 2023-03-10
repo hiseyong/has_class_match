@@ -1,6 +1,7 @@
 import { useNavigate,useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import axios from 'axios';
+
 export function TableFill(props) {
     const loc = useLocation();
     const client = axios.create()
@@ -14,7 +15,14 @@ export function TableFill(props) {
 
     const onChange = (e) => {
         setSubject(e.target.value)
-        console.log(e.target.value)
+    }
+
+    const onClick = () => {
+        if(subject === 'select') {
+            alert('과목을 선택하세요')
+        } else {
+            
+        }
     }
 
     const navigate = useNavigate()

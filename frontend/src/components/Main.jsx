@@ -25,6 +25,11 @@ export function Main(props) {
         }
         
     },[account.username])
+    
+    useEffect(()=> {
+        props.tabling(table)
+    },[table])
+
     if(props.username === '') {
         return(
             <h1>로그인되지 않았습니다.</h1>

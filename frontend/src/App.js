@@ -11,6 +11,10 @@ import { Nav } from "./components/Nav";
 import { Search } from "./components/Search";
 function App() {
   const [logedInUsername, setLogedInUsername] = useState('hiseyong');
+  const [tableList, setTableList] = useState([])
+  const tabling = (val) => {
+    setTableList(val)
+  }
   const logging = (val) => {
     setLogedInUsername(val);
   }
@@ -19,9 +23,9 @@ function App() {
       <BrowserRouter>
         <Nav/>
         <Routes>
-          <Route path="/tablefill/:id" element={<TableFill username={logedInUsername}/>}/>
+          <Route path="/tablefill/:id" element={<TableFill username={logedInUsername} tablelist = {tableList}/>}/>
           <Route path="/login" element={<Login logging={logging} username={logedInUsername}/>}/>
-          <Route path="/timetable" element={<Main username={logedInUsername}/>}/>
+          <Route path="/timetable" element={<Main username={logedInUsername} tabling={tabling}/>}/>
           <Route path="/introduction" element={<Introduction/>}/>
           <Route path="/resister" element={<Resister/>}/>
           <Route path="/search" element={<Search/>}/>
