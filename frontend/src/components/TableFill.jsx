@@ -27,6 +27,7 @@ export function TableFill(props) {
             alert('과목을 선택하세요')
         } else {
             tableList[location] = subject
+            console.log(tableList)
             .then(
                 client.post('/api/tablefill', {tableList, account})
             )
