@@ -86,9 +86,9 @@ app.post('/api/tablefill',(req, res) => {
   connection.query(`SELECT * FROM timetable WHERE username='${recUserinfo}'`, (error, rows) => {
     if(error) throw error;
     ls = rows
+    console.log(ls)
+    const tt = ls.timetable.split(',')
   })
-  console.log(ls)
-  const tt = ls.timetable.split(',')
   console.log(tt)
   tt[recTableLocation] = recTableValue
   let tableString = ''
