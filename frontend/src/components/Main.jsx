@@ -19,7 +19,6 @@ export function Main(props) {
             client.post('/api/getlist' , {account} )   //axios 기능을 통한 post 사용및 name 값 전달.
         .then(res => {
             setTable(res.data[0].timetable.split(','))
-            console.log(res.data[0].timetable.split(','))
         })
         .catch();
         }
