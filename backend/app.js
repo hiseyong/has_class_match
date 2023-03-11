@@ -76,32 +76,14 @@ app.post('/api/getlist',(req, res) => {
 });
 
 app.post('/api/tablefill',(req, res) => {
-  let recTableLocation = req.body.location
-  let recTableValue = req.body.subject
-  let recUserinfo = req.body.account
-  let ls = []
-  const tt = ''
-  console.log(recTableLocation)
+  const recTableValue = req.body.tableList
+  const recUserinfo = req.body.account
+  const tableString = recTableValue.join()
   console.log(recTableValue)
-  console.log(recUserinfo)
-  connection.query(`SELECT * FROM timetable WHERE username='${recUserinfo}'`, (error, rows) => {
-    if(error) throw error;
-    console.log(rows)
-    ls = rows
-    console.log(ls)
-    tt = ls.timetable.split(',')
-    console.log(tt)
-  })
-  tt[recTableLocation] = recTableValue
-  let tableString = ''
-  for(let i=0; i < tt.length; i++) {
-    tableString = tableString + tt[i]
-  }
   console.log(tableString)
   connection.query(`UPDATE timetable SET timetable='${tableString} WHERE username='${recUserinfo}'`, (error, rows) => {
     if(error) throw error;
     console.log(rows)
-    res.send(rows)
   })
 });
 

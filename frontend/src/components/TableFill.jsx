@@ -8,6 +8,7 @@ export function TableFill(props) {
     const [account, setAccount] = useState(props.username)
     const [location, setLocation] = useState(loc.pathname.split('/')[1]);
     const [subject, setSubject] = useState('select')
+    const tableList = props.tableList
 
     useEffect(()=>{
         setLocation(loc.pathname.split('/')[2]);
@@ -25,7 +26,10 @@ export function TableFill(props) {
         if(subject === 'select') {
             alert('과목을 선택하세요')
         } else {
-            client.post('/api/tablefill', {subject, location, account})
+            tableList[location] = subject
+            .then(
+                client.post('/api/tablefill', {tableList, account})
+            )
         }
     }
 
