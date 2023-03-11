@@ -79,7 +79,7 @@ app.post('/api/tablefill',(req, res) => {
   const recTableValue = req.body.tableList
   const recUserinfo = req.body.account
   //const tableString = recTableValue.join()
-  console.log(recTableValue)
+  console.log(req.body)
   //console.log(tableString)
   /*connection.query(`UPDATE timetable SET timetable='${tableString} WHERE username='${recUserinfo}'`, (error, rows) => {
     if(error) throw error;
