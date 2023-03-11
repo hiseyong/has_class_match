@@ -76,15 +76,12 @@ app.post('/api/getlist',(req, res) => {
 });
 
 app.post('/api/tablefill',(req, res) => {
-  const recTableValue = req.body.tableList
-  const recUserinfo = req.body.account
-  //const tableString = recTableValue.join()
+  const recTableValue = req.body.packet.tableList
+  const recUserinfo = req.body.packet.username
   console.log(req.body)
-  //console.log(tableString)
-  /*connection.query(`UPDATE timetable SET timetable='${tableString} WHERE username='${recUserinfo}'`, (error, rows) => {
+  connection.query(`UPDATE timetable SET timetable='${tableString} WHERE username='${recUserinfo}'`, (error, rows) => {
     if(error) throw error;
-    console.log(rows)
-  })*/
+  })
 });
 
 app.use(express.json());

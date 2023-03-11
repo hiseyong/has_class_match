@@ -8,6 +8,10 @@ export function TableFill(props) {
     const [account, setAccount] = useState(props.username)
     const [location, setLocation] = useState(loc.pathname.split('/')[1]);
     const [subject, setSubject] = useState('select')
+    const [packet, setPackage] = useState({
+        'username': '',
+        'tableList': ''
+    })
     const tableList = props.tableList
 
     useEffect(()=>{
@@ -17,6 +21,7 @@ export function TableFill(props) {
     useEffect(() => {
         setAccount(props.username)
     }, [props.username])
+
 
     const onChange = (e) => {
         setSubject(e.target.value)
@@ -28,8 +33,12 @@ export function TableFill(props) {
         } else {
             tableList[location] = subject
             console.log(tableList)
+            setPackage({
+                'username': account,
+                'tableList': tableList
+            })
             .then(
-                client.post('/api/tablefill', {tableList, account})
+                client.post('/api/tablefill', {packet})
             )
         }
     }
